@@ -1,0 +1,71 @@
+﻿ <!--
+Form Creation
+-->
+
+<form class="form-text">
+    <label for="id">Id</label>
+    <input id="id" type="number" @bind-value="id" />
+    <br />
+
+    <label for="fname">First Name</label>
+    <input id="fname" type="text" @bind-value="firstName" />
+    <br />
+
+    <label for="sname">Second Name</label>
+    <input id="sname" type="text" @bind-value="lastName" />
+    <br />
+
+    <label for="brth">Birthdate</label>
+    <input id="birth" type="date" @bind-value="birth" />
+    <br />
+
+    <label for="telephone">Telephone</label>
+    <input id="telephone" type="number" @bind-value="telephone" />
+    <br />
+
+    <label for="address">Address</label>
+    <input id="address" type="text" @bind-value="address" />
+    <br />
+
+    <input type="button" value="Hga click aca" @onclick="ChangeText" />
+</form>
+
+<!--
+    Presentacion de la informacion luego de dar click al boton de cambio de texto
+-->
+
+<div>
+    @message
+
+</div>
+
+
+
+
+@code {
+    [Parameter]
+    public string Message { get; set; }
+
+    string message;
+    int id;
+    string firstName;
+    string secondName;
+    string lastName;
+    DateTime birth;
+    int telephone;
+    string address;
+
+    protected override async Task OnInitializedAsync()
+    {
+        message = Message;
+
+    }
+
+    private void ChangeText()
+    {
+
+
+        message = "Hola mi id es " + id + "mi primer nombre es: " + firstName + " mi segundo nombre es " + secondName + " mi fecha de cumpleaños es " + birth +
+            " mi numero telefonico es " + telephone + " esta es mi direccion " + address;
+    }
+}
